@@ -1,0 +1,20 @@
+{
+  "name": "nsfw-detector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "keywords": [],
+  "author": "napthedev",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^3.13.0",
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "nsfwjs": "^2.4.1"
+  }
+}

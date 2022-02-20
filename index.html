@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NSFW Detector</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-dark-reasonable.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        margin: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>NSFW Detector</h1>
+    <h2 style="margin-top: 20px">Request</h2>
+    <p style="margin-top: 20px">
+      <strong>POST</strong> <span class="location"></span>
+    </p>
+    <h3 style="margin-top: 20px">Headers</h3>
+    <pre>
+      <code>Content-Type: application/json</code>
+    </pre>
+    <h3>Body</h3>
+    <pre>
+      <code class="language-json">{
+    "image": "image url or base64"
+    // For example
+    // url:             https://example.com/your-image.png
+    // base64:     /9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBISFRUVE.......
+}</code>
+    </pre>
+
+    <h2>Example Response</h2>
+    <pre>
+      <code class="language-json">[
+    {
+        "className": "Porn",
+        "probability": 0.9291775822639465
+    },
+    {
+        "className": "Sexy",
+        "probability": 0.05509272962808609
+    },
+    {
+        "className": "Hentai",
+        "probability": 0.015235277824103832
+    },
+    {
+        "className": "Neutral",
+        "probability": 0.0004801727773156017
+    },
+    {
+        "className": "Drawing",
+        "probability": 0.000014150594324746635
+    }
+]</code>
+</pre>
+
+    <script>
+      document
+        .querySelectorAll(".location")
+        .forEach((item) => (item.innerText = location.href));
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>
