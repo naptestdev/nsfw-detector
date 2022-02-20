@@ -1,0 +1,7 @@
+{
+  "name": "NSFW Detector",
+  "description": "Detect NSFW Images",
+  "repository": "https://github.com/naptestdev/nsfw-detector",
+  "logo": "https://www.herokucdn.com/favicons/apple-touch-icon.png",
+  "keywords": ["node", "express", "nsfw"]
+}
