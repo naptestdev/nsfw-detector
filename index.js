@@ -3,6 +3,7 @@ const app = express();
 const axios = require("axios").default;
 const tf = require("@tensorflow/tfjs-node");
 const nsfw = require("nsfwjs");
+require("dotenv/config");
 
 nsfw.load().then((model) => {
   app.use(express.json());
