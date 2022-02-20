@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
 const axios = require("axios").default;
-const tf = require("@tensorflow/tfjs-node");
 const nsfw = require("nsfwjs");
 require("dotenv/config");
+const {
+  node: { decodeImage },
+} = require("@tensorflow/tfjs-node");
 
-nsfw.load().then((model) => {
+nsfw.load("https://nsfwjs.com/quant_nsfw_mobilenet/").then((model) => {
   app.use(express.json());
 
   app.get("/", (req, res) => {
@@ -28,7 +30,7 @@ nsfw.load().then((model) => {
               })
             ).data;
 
-      const tfImage = tf.node.decodeImage(pic, 3);
+      const tfImage = decodeImage(pic, 3);
       const predictions = await model.classify(tfImage);
       tfImage.dispose();
 
