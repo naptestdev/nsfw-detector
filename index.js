@@ -2,12 +2,15 @@ const express = require("express");
 const app = express();
 const axios = require("axios").default;
 const nsfw = require("nsfwjs");
+const cors = require("cors");
 require("dotenv/config");
 const {
   node: { decodeImage },
 } = require("@tensorflow/tfjs-node");
 
 app.use(express.json());
+
+app.use(cors())
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
